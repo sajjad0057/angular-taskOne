@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { ExportComponent } from './export/export.component';
 import { NotFoundComponent } from './stantalones/not-found/not-found.component';
 import { OverviewComponent } from './stantalones/sidecomponents/overview/overview.component';
 
@@ -15,6 +17,8 @@ const routes: Routes = [
       import('./reports/reports.module').then((m) => m.ReportsModule),
   },
   {path:'overview',component:OverviewComponent},
+  {path:'analytics',component:AnalyticsComponent},
+  {path:'export',component:ExportComponent},
   {path:'**',component:NotFoundComponent}
 ];
 

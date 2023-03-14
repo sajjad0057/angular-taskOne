@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ReportsComponent } from './reports/reports.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { ExportComponent } from './export/export.component';
 
 
 
@@ -12,6 +14,8 @@ import { ReportsComponent } from './reports/reports.component';
   declarations: [
     AppComponent,
     ReportsComponent,
+    AnalyticsComponent,
+    ExportComponent,
 
   ],
   imports: [
