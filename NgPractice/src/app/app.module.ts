@@ -15,7 +15,6 @@ import { Component5Component } from './dashboard/components/component5/component
 import { Component6Component } from './dashboard/components/component6/component6.component';
 import { HomeComponent } from './dashboard/components/home/home.component';
 import { InvalidComponent } from './dashboard/components/invalid/invalid.component';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
