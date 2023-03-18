@@ -6,20 +6,16 @@ import { DashboardComponent } from './dashboard.component';
 import { HeaderComponent } from '../header/header.component';
 import { BodyComponent } from '../body/body.component';
 import { FooterComponent } from '../footer/footer.component';
-
-
+import { ProductModule } from 'src/app/pages/product/product.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BodyComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-  ],
-  exports: [DashboardComponent]
+  imports: [CommonModule, DashboardRoutingModule, ProductModule],
+  exports: [DashboardComponent],
 })
-export class DashboardModule { }
+export class DashboardModule {}

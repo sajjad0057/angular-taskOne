@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100" id="sidebar">
+      <ul class="nav flex-column flex-nowrap">
+        <h3>categories</h3>
+        <hr />
+        <ng-container *ngIf="MenuItems.length != 0">
+          <li class="nav-item" *ngFor="let menu of MenuItems">
+            <a
+              class="nav-link"
+              routerLinkActive="active"
+              routerLink="{{ menu.url }}"
+              >{{ menu.title }}</a
+            >
+          </li>
+        </ng-container>
+        <ng-container *ngIf="MenuItems.length == 0">
+          <li class="nav-item">No categories found!</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col pt-2">
+      <h4>products :</h4>
+      <hr />
+      <h2>
+        <router-outlet></router-outlet>
+      </h2>
+    </div>
+  </div>
+</div>

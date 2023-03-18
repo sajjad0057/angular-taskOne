@@ -12,6 +12,8 @@ const routes: Routes = [
   {path:'modal1',component:Modal1Component},
   {path:'modal2',component:Modal2Component},
   {path:'modal3',component:Modal3Component},
+  {path:'product',
+  loadChildren:()=>import('../../../pages/product/product.module').then((m)=>m.ProductModule)},
 ];
 
 @NgModule({
