@@ -1,0 +1,11 @@
+.nav-link[data-toggle].collapsed:after {
+    content: "▾";
+}
+.nav-link[data-toggle]:not(.collapsed):after {
+    content: "▴";
+}
+
+a{
+    color: rgb(85, 85, 85);
+    font-weight: bold;
+}
