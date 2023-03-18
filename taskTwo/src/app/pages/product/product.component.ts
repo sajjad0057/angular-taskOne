@@ -16,7 +16,8 @@ export class ProductComponent implements OnInit {
   constructor(private _productService : ProductService,private _title:Title){}
 
   ngOnInit(): void {
-    this.MenuItems = this._productService.getMenus(); 
+    this.MenuItems = this._productService.getMenus();
+    this._title.setTitle("dashboard-product");
   }
 
   setTitle(title:string){

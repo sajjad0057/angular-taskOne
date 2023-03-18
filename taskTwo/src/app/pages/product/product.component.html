@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100" id="sidebar">
+    <div class="col-2 d-md-flex bg-light pt-2 min-vh-100" id="sidebar">
       <ul class="nav flex-column flex-nowrap">
         <h3 class="text-muted">categories</h3>
         <hr />
         <ng-container *ngIf="MenuItems.length != 0">
-          <li class="nav-item"  *ngFor="let m of MenuItems">
+          <li class="nav-item" *ngFor="let m of MenuItems">
             <a
               class="nav-link"
               (click)="setTitle(m.title)"
