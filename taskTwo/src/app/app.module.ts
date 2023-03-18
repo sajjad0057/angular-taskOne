@@ -4,15 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { BodyComponent } from './shared/components/body/body.component';
-import { HomeComponent } from './pages/home/home.component';
+import { DashboardModule } from './shared/components/dashboard/dashboard.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,

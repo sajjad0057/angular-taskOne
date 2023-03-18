@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { HeaderComponent } from '../shared/components/header/header.component';
-import { FooterComponent } from '../shared/components/footer/footer.component';
-import { BodyComponent } from '../shared/components/body/body.component';
+import { HeaderComponent } from '../header/header.component';
+import { BodyComponent } from '../body/body.component';
+import { FooterComponent } from '../footer/footer.component';
+
 
 
 @NgModule({
