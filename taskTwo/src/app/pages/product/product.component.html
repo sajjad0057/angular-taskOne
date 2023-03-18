@@ -2,15 +2,16 @@
   <div class="row">
     <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100" id="sidebar">
       <ul class="nav flex-column flex-nowrap">
-        <h3>categories</h3>
+        <h3 class="text-muted">categories</h3>
         <hr />
         <ng-container *ngIf="MenuItems.length != 0">
-          <li class="nav-item" *ngFor="let menu of MenuItems">
+          <li class="nav-item"  *ngFor="let m of MenuItems">
             <a
               class="nav-link"
+              (click)="setTitle(m.title)"
               routerLinkActive="active"
-              routerLink="{{ menu.url }}"
-              >{{ menu.title }}</a
+              routerLink="{{ m.url }}"
+              >{{ m.menu }}</a
             >
           </li>
         </ng-container>
@@ -20,9 +21,9 @@
       </ul>
     </div>
     <div class="col pt-2">
-      <h4>products :</h4>
+      <h4 class="text-muted">products :</h4>
       <hr />
-      <h2>
+      <h2 class="text-muted">
         <router-outlet></router-outlet>
       </h2>
     </div>

@@ -18,4 +18,5 @@ import { ProductModule } from 'src/app/pages/product/product.module';
   imports: [CommonModule, DashboardRoutingModule, ProductModule],
   exports: [DashboardComponent],
 })
+
 export class DashboardModule {}
