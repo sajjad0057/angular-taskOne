@@ -16,18 +16,36 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="#"
-            >Component 1</a
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/dashboard"
+            >Home</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="#"
-            >Component 2</a
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/dashboard/modal1"
+            >Modal 1</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="#"
-            >Component 3</a
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/dashboard/modal2"
+            >Modal 2</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/dashboard/modal3"
+            >Modal 3</a
           >
         </li>
       </ul>
