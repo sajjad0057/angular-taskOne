@@ -13,7 +13,7 @@ export class ProductComponent implements OnInit {
 
   MenuItems : IMenuItems[] = [];
 
-  constructor(private _productService : ProductService,private _title:Title){}
+  constructor(private _productService : ProductService, private _title : Title){}
 
   ngOnInit(): void {
     this.MenuItems = this._productService.getMenus();
@@ -22,6 +22,5 @@ export class ProductComponent implements OnInit {
 
   setTitle(title:string){
     this._title.setTitle(title);  
-  }
-  
+  } 
 }

@@ -13,7 +13,7 @@ export class Modal3Component implements OnInit {
   constructor(private _title : Title,private _modalService: NgbModal){}
 
   ngOnInit(): void {
-    this._title.setTitle('dashboard-mpdal3')
+    this._title.setTitle('dashboard-modal3')
   }
 
   openLg(content:any) {

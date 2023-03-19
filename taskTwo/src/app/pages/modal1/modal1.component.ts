@@ -15,7 +15,7 @@ export class Modal1Component implements OnInit {
   constructor(private _title : Title,private _modalService: NgbModal){}
 
   ngOnInit(): void {
-    this._title.setTitle('dashboard-mpdal1')
+    this._title.setTitle('dashboard-modal1')
   }
 
   open(content:any) {

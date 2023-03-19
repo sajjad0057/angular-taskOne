@@ -14,7 +14,7 @@ export class Modal2Component implements OnInit {
   constructor(private _title: Title, private _modalService: NgbModal) {}
 
   ngOnInit(): void {
-    this._title.setTitle('dashboard-mpdal2');
+    this._title.setTitle('dashboard-modal2');
   }
 
   openVerticallyCentered(content: any) {
