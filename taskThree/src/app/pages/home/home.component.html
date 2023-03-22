@@ -1,4 +1,4 @@
-<form #form="ngForm" (ngSubmit)="submit()">
+<form #myForm="ngForm" (ngSubmit)="submit()">
   <div class="form-group m-3">
     <h2>Add Card</h2>
     <hr />
@@ -11,22 +11,40 @@
         class="form-control"
         id="title"
         [(ngModel)]="cardForm.title"
-        name ="title"
-        placeholder="Title"
+        #title="ngModel"
+        name="title"
+        placeholder="Place Card Title"
         required
+        minlength="10"
+        maxlength="12"
       />
+    </div>
+    <div
+      *ngIf="title.invalid && (title.dirty)"
+      class="p-2 m-2 text-warning rounded"
+    >
+      Card title is required and length must be 10 to 12 characters!
     </div>
     <div class="mb-3">
       <label for="body" class="form-label">body</label>
       <textarea
         class="form-control"
         id="body"
+        name="body"
         [(ngModel)]="cardForm.body"
-        name ="body"
-        placeholder="Body"
+        #body="ngModel"
+        placeholder="Place Card Body"
+        minlength="10"
+        maxlength="1000"
         required
       >
       </textarea>
+    </div>
+    <div
+      *ngIf="body.invalid && (body.dirty)"
+      class="p-2 text-warning rounded"
+    >
+      Card Body is required and length must be 10 to 1000 character!
     </div>
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
@@ -35,12 +53,20 @@
         class="form-control"
         id="image"
         (change)="onFileChange($event)"
-        name ="image"
         required
       />
     </div>
+    <div *ngIf="!isValidImage" class="p-2 text-warning rounded">
+      {{ imageValidationMessage }}
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="my-2">
+    <button
+      [disabled]="myForm.form.invalid"
+      type="submit"
+      class="btn btn-success btn-lg"
+      >Submit</button>
+  </div>
 </form>
 <hr />
 

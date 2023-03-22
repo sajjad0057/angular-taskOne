@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BodyRoutingModule } from './body-routing.module';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { BodyComponent } from './body.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
