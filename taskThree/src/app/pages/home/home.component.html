@@ -20,31 +20,44 @@
       />
     </div>
     <div
-      *ngIf="title.invalid && (title.dirty || title.touched) && !isValidTitle"
-      class="p-2 m-2 text-warning rounded"
+      *ngIf="(title.invalid || title.dirty || title.touched)  && !isValidTitle"
+      class="p-2 text-warning rounded"
     >
       Card title is required and length must be 10 to 12 characters!
     </div>
     <div class="mb-3">
-      <label for="body" class="form-label">body</label>
+      <label for="subtitle" class="form-label">Subtitle</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="cardForm.subtitle"
+        #title="ngModel"
+        name="subtitle"
+        placeholder="Place Card Subtitle"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
       <textarea
         class="form-control"
-        id="body"
-        name="body"
-        [(ngModel)]="cardForm.body"
-        #body="ngModel"
-        placeholder="Place Card Body"
-        minlength="10"
+        id="description"
+        name="description"
+        [(ngModel)]="cardForm.description"
+        #description="ngModel"
+        placeholder="Place card description"
+        minlength="50"
         maxlength="1000"
         required
       >
       </textarea>
     </div>
     <div
-      *ngIf="body.invalid && (body.dirty || title.touched) && !isValidBody"
+      *ngIf="(description.invalid || description.dirty || description.touched) && !isValidDescription"
       class="p-2 text-warning rounded"
     >
-      Card Body is required and length must be 10 to 1000 character!
+      Card description is required and length must be 50 to 1000 character!
     </div>
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
@@ -79,11 +92,12 @@
       style="width: 18rem"
       *ngFor="let card of cards"
     >
-      <img class="card-img-top" src="{{ card.image }}" alt="Card image cap" />
-      <div class="card-body">
-        <h5 class="card-title">{{ card.title }}</h5>
-        <p class="card-text">{{ card.body }}</p>
-      </div>
+    <img class="card-img-top" [src]="card.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{card.title}}</h5>
+      <p>{{card.subtitle}}</p>
+      <p class="card-text">{{card.description}}</p>
+    </div>
     </div>
   </div>
 </ng-container>

@@ -1,5 +1,6 @@
 export interface ICardItems{
     title : string,
-    body : string,
+    subtitle : string,
+    description : string,
     image : string
 }
