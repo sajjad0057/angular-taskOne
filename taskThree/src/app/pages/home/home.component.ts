@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { ICardItems } from 'src/app/shared/types/ICardItems';
 import { Cards } from 'src/assets/data/Cards';
@@ -8,13 +8,15 @@ import { Cards } from 'src/assets/data/Cards';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-
 export class HomeComponent implements OnInit {
-  isValidImage : boolean = false;
+
+  @ViewChild('image') fileInput!: ElementRef;
+
+  isValidImage: boolean = true;
   imageValidationMessage: string = '';
-  isSetImage : boolean = false;
-  isValidTitle : boolean = true;
-  isValidBody : boolean = true;
+  isSetImage: boolean = false;
+  isValidTitle: boolean = true;
+  isValidBody: boolean = true;
 
   cardForm: ICardItems = {
     title: '',
@@ -30,12 +32,64 @@ export class HomeComponent implements OnInit {
     console.log('HomeComponent.ts fired !');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    
+  }
 
-  onFileChange($event: Event) {
 
+  submit() : void {
+
+    this.checkValidation();
+
+    console.log(`isValidImage : ${this.isValidImage}`);
+    console.log(`isValidTitle : ${this.isValidTitle}`);
+    console.log(`isValidBody : ${this.isValidBody}`);
+    
+    if ((this.isSetImage && this.isValidImage) && (this.isValidTitle && this.isValidBody)) 
+    {
+      console.log(this.cardForm);
+      this.cards.push(this.cardForm);
+      this.cardForm = {
+        title: '',
+        body: '',
+        image: '',
+      };
+      this.isSetImage = false;
+      const fileInputElement = this.fileInput.nativeElement;
+      fileInputElement.value = '';
+    }
+  }
+
+  checkValidation():void{
+
+    if (this.cardForm.title.length >= 10 && this.cardForm.title.length <= 12) 
+    {
+      this.isValidTitle = true;
+    } 
+    else 
+    {
+      this.isValidTitle = false;
+    }
+
+    if (this.cardForm.body.length >= 15 && this.cardForm.body.length <= 1000)
+    {
+      this.isValidBody = true;
+    } 
+    else 
+    {
+      this.isValidBody = false;
+    }
+    if(!this.isSetImage){
+      this.isValidImage = false;
+      this.imageValidationMessage = "Image file is required !"
+    }
+
+  }
+
+  onFileChange($event: Event) : void {
     this.isSetImage = true;
-    this.imageValidationMessage = ""
+    this.imageValidationMessage = '';
     const target = $event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
 
@@ -51,7 +105,8 @@ export class HomeComponent implements OnInit {
       this.isValidImage = true;
       console.log(this.imageValidationMessage);
       this.convertToBase64(file);
-    } else {
+    } 
+    else {
       this.isValidImage = false;
       if (fileSize > 200) {
         this.imageValidationMessage +=
@@ -65,19 +120,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  submit() {
-
-    if (this.isValidImage){
-      this.cards.push(this.cardForm);
-      this.cardForm = {
-        title : '',
-        body : '',
-        image : ''
-      }
-    }
-  }
-
-  convertToBase64(file: File) {
+  convertToBase64(file: File) : void {
     const observable = new Observable((subscriber: Subscriber<any>) => {
       this.readFile(file, subscriber);
     });
@@ -86,7 +129,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  readFile(file: File, subscriber: Subscriber<any>) {
+  readFile(file: File, subscriber: Subscriber<any>) : void {
     const filereader = new FileReader();
     filereader.readAsDataURL(file);
     filereader.onload = () => {

@@ -1,5 +1,5 @@
 <form #myForm="ngForm" (ngSubmit)="submit()">
-  <div class="form-group m-3">
+  <div class="form-group mt-3">
     <h2>Add Card</h2>
     <hr />
   </div>
@@ -20,7 +20,7 @@
       />
     </div>
     <div
-      *ngIf="title.invalid && (title.dirty)"
+      *ngIf="title.invalid && (title.dirty || title.touched) && !isValidTitle"
       class="p-2 m-2 text-warning rounded"
     >
       Card title is required and length must be 10 to 12 characters!
@@ -41,7 +41,7 @@
       </textarea>
     </div>
     <div
-      *ngIf="body.invalid && (body.dirty)"
+      *ngIf="body.invalid && (body.dirty || title.touched) && !isValidBody"
       class="p-2 text-warning rounded"
     >
       Card Body is required and length must be 10 to 1000 character!
@@ -51,6 +51,7 @@
       <input
         type="file"
         class="form-control"
+        #image
         id="image"
         (change)="onFileChange($event)"
         required
@@ -62,14 +63,15 @@
   </div>
   <div class="my-2">
     <button
-      [disabled]="myForm.form.invalid"
       type="submit"
       class="btn btn-success btn-lg"
       >Submit</button>
   </div>
 </form>
 <hr />
-
+<div>
+  <h2>Your Cards :</h2>
+</div>
 <ng-container *ngIf="cards.length != 0">
   <div class="row">
     <div
