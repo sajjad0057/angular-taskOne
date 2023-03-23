@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Cards } from 'src/assets/data/Cards';
 import { ICardItems } from '../shared/types/ICardItems';
 

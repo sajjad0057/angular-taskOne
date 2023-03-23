@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Observable, Subscriber } from 'rxjs';
 import { CardService } from 'src/app/services/card.service';
 import { ICardItems } from 'src/app/shared/types/ICardItems';
@@ -29,14 +30,13 @@ export class HomeComponent implements OnInit {
 
   base64code!: string;
 
-  constructor(private _cardService:CardService) {
+  constructor(private _cardService:CardService,private _title:Title) {
     
   }
 
   ngOnInit(): void {
-
-    
-    this.cards = this._cardService.getCard()  
+    this._title.setTitle("TaskThree-Home");
+    this.cards = this._cardService.getCard();
   }
 
 
